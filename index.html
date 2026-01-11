@@ -60,6 +60,13 @@
             margin-bottom: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
         }
 
         .hero .subtext {
@@ -234,6 +241,7 @@
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2em;
+                white-space: normal;
             }
 
             .hero .subtext {
