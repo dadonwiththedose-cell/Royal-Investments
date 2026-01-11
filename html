@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royale Investment - Strategic Financial Consultancy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #0a0a0a;
+            color: #d4d4d4;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 120px 0 100px;
+            text-align: center;
+            border-bottom: 2px solid #2a2a2a;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            color: #ffffff;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero .subtext {
+            font-size: 1.3em;
+            color: #b8a46a;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        section:nth-child(even) {
+            background-color: #151515;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #b8a46a;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #c4c4c4;
+            text-align: justify;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: linear-gradient(145deg, #1f1f1f, #0f0f0f);
+            padding: 35px 25px;
+            border: 1px solid #333;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: #b8a46a;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(184, 164, 106, 0.15);
+        }
+
+        .value-card h3 {
+            font-size: 1.5em;
+            color: #b8a46a;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .value-card p {
+            font-size: 1em;
+            color: #a4a4a4;
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            padding: 40px 30px;
+            border-left: 3px solid #b8a46a;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: #222;
+            border-left-width: 5px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
+            color: #b4b4b4;
+            text-align: left;
+        }
+
+        /* Clientele Section */
+        .clientele-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .client-type {
+            background: #1f1f1f;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+            font-size: 1.1em;
+            color: #d4d4d4;
+            transition: all 0.3s ease;
+        }
+
+        .client-type:hover {
+            background: #252525;
+            border-color: #b8a46a;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            color: #b8a46a;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer p {
+            color: #6a6a6a;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* Decorative Line */
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #b8a46a, transparent);
+            margin: 30px auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtext {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://i.imgur.com/MJZx4YT.png" alt="Royale Investment" class="logo">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elevating Business Ambition in Del Perro</h1>
+            <div class="decorative-line"></div>
+            <p class="subtext">Strategic Consultancy • Private Capital Solutions • Enduring Partnerships</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="decorative-line"></div>
+            <p>Royale Investment stands as a distinguished financial consultancy and lending institution headquartered in the heart of Del Perro. We specialize in delivering tailored advisory and capital solutions to entrepreneurs and corporations seeking to expand their influence and secure long-term financial stability.</p>
+            <p>Our approach blends discretion, sophistication, and strategic insight — providing clients with the confidence to pursue bold opportunities in an evolving economic landscape.</p>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <div class="decorative-line"></div>
+            <p>To cultivate growth and innovation within the Del Perro business sector by offering refined financial expertise, carefully structured lending solutions, and strategic counsel of uncompromising quality.</p>
+        </div>
+    </section>
+
+    <section id="values">
+        <div class="container">
+            <h2>Our Values</h2>
+            <div class="decorative-line"></div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Excellence</h3>
+                    <p>Upholding the highest standards in financial advisory and capital strategy</p>
+                </div>
+                <div class="value-card">
+                    <h3>Confidentiality</h3>
+                    <p>Protecting client interests with absolute discretion</p>
+                </div>
+                <div class="value-card">
+                    <h3>Ambition</h3>
+                    <p>Encouraging visionary thinking and calculated expansion</p>
+                </div>
+                <div class="value-card">
+                    <h3>Commitment</h3>
+                    <p>Serving as trusted partners throughout every phase of business growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="decorative-line"></div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Strategic Business Advisory</h3>
+                    <p>Comprehensive consulting designed to optimize operations, maximize returns, and position clients for sustainable success.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Private Capital & Lending Programs</h3>
+                    <p>Exclusive lending options tailored to support liquidity, expansion initiatives, and accelerated growth with precision and flexibility.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Financial Structuring & Long-Term Planning</h3>
+                    <p>Sophisticated financial frameworks engineered to protect assets, enhance performance, and support strategic decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate Expansion & Market Positioning</h3>
+                    <p>Guidance for businesses seeking to expand their footprint, enter new markets, or elevate competitive advantage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientele">
+        <div class="container">
+            <h2>Clientele</h2>
+            <div class="decorative-line"></div>
+            <p>We serve a selective portfolio of:</p>
+            <div class="clientele-list">
+                <div class="client-type">Established Enterprises</div>
+                <div class="client-type">Mid-Market Corporations</div>
+                <div class="client-type">High-Growth Ventures</div>
+                <div class="client-type">Visionary Founders & Entrepreneurs</div>
+            </div>
+            <p style="margin-top: 30px; text-align: center;">Operating within Del Perro and beyond.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="decorative-line"></div>
+            <p>For consultation and partnership inquiries, please contact our corporate office. Royale Investment welcomes engagements from businesses with ambition, vision, and a desire to elevate their future.</p>
+            <p class="contact-info">Inquiries: contact@royaleinvestment.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Royale Investment. All rights reserved. Del Perro Financial District.</p>
+        </div>
+    </footer>
+</body>
+</html>
