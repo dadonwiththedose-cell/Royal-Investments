@@ -37,7 +37,41 @@
         .logo-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-spacer {
+            width: 150px;
+        }
+
+        .login-btn {
+            background: transparent;
+            border: 1px solid #b8a46a;
+            color: #b8a46a;
+            padding: 10px 25px;
+            font-family: 'Georgia', serif;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .login-btn:hover {
+            background: #b8a46a;
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo-spacer {
+                display: none;
+            }
         }
 
         .logo {
@@ -195,6 +229,129 @@
             border-color: #b8a46a;
         }
 
+        /* Loan Application Section */
+        .loan-application {
+            background: linear-gradient(135deg, #151515 0%, #1a1a1a 100%);
+        }
+
+        .loan-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .loan-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            padding: 50px;
+            border: 1px solid #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #b8a46a;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            color: #d4d4d4;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #b8a46a;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #b8a46a, #9a8654);
+            border: none;
+            color: #0a0a0a;
+            font-family: 'Georgia', serif;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #c9b87a, #ab9764);
+            transform: translateY(-2px);
+        }
+
+        .login-note {
+            max-width: 700px;
+            margin: 40px auto 0;
+            text-align: center;
+            padding: 25px;
+            background: #0f0f0f;
+            border: 1px dashed #b8a46a;
+        }
+
+        .login-note p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .portal-link-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #b8a46a;
+            color: #b8a46a;
+            padding: 12px 35px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .portal-link-btn:hover {
+            background: #b8a46a;
+            color: #000000;
+        }
+
+        @media (max-width: 600px) {
+            .loan-form {
+                padding: 30px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
@@ -262,7 +419,9 @@
     <header>
         <div class="container">
             <div class="logo-container">
+                <div class="logo-spacer"></div>
                 <img src="https://i.imgur.com/fElLwPw.png" alt="Royale Investment" class="logo">
+                <a href="https://banking.gta.world/login" class="login-btn" target="_blank">Client Login</a>
             </div>
         </div>
     </header>
@@ -357,6 +516,70 @@
         </div>
     </section>
 
+    <section class="loan-application" id="apply">
+        <div class="container">
+            <h2>Apply for a Loan</h2>
+            <div class="decorative-line"></div>
+            <div class="loan-intro">
+                <p>Take the first step toward securing capital for your business ambitions. Complete the application below, and a member of our advisory team will review your submission and reach out to discuss tailored lending solutions.</p>
+            </div>
+
+            <form class="loan-form" onsubmit="handleLoanSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" name="business" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount">Requested Loan Amount</label>
+                        <input type="text" id="amount" name="amount" placeholder="$" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="term">Preferred Term Length</label>
+                        <select id="term" name="term" required>
+                            <option value="">Select Term</option>
+                            <option value="6-months">6 Months</option>
+                            <option value="1-year">1 Year</option>
+                            <option value="2-years">2 Years</option>
+                            <option value="5-years">5 Years</option>
+                            <option value="custom">Custom / Discuss with Advisor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="purpose">Purpose of Loan</label>
+                    <textarea id="purpose" name="purpose" placeholder="Briefly describe how the capital will be used..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+
+            <div class="login-note">
+                <p>Already an approved client? Manage your account and complete your loan installments through our secure client portal.</p>
+                <a href="https://banking.gta.world/login" class="portal-link-btn" target="_blank">Access Client Portal</a>
+            </div>
+        </div>
+    </section>
+
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contact Us</h2>
@@ -371,5 +594,65 @@
             <p>&copy; 2026 Royale Investment. All rights reserved. Del Perro Financial District.</p>
         </div>
     </footer>
+
+    <script>
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1547730047207477319/BOCNgkLGvaVoiKc44qsXl5O-MWaO-pm9sl10SwJE10KiNkKeJf2OL_1DofH5c0Pfj8-m";
+
+        async function handleLoanSubmit(event) {
+            event.preventDefault();
+
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            const fullname = document.getElementById('fullname').value;
+            const business = document.getElementById('business').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const amount = document.getElementById('amount').value;
+            const term = document.getElementById('term').value;
+            const purpose = document.getElementById('purpose').value;
+
+            const payload = {
+                embeds: [
+                    {
+                        title: "New Loan Application — Royale Investment",
+                        color: 12212330,
+                        fields: [
+                            { name: "Full Name", value: fullname, inline: true },
+                            { name: "Business Name", value: business, inline: true },
+                            { name: "Email", value: email, inline: true },
+                            { name: "Phone", value: phone, inline: true },
+                            { name: "Requested Amount", value: amount, inline: true },
+                            { name: "Term Length", value: term, inline: true },
+                            { name: "Purpose", value: purpose }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }
+                ]
+            };
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert('Thank you, ' + fullname + '! Your loan application has been received. Our advisory team will review your submission and contact you shortly regarding next steps.');
+                    event.target.reset();
+                } else {
+                    alert('There was an issue submitting your application. Please try again or contact us directly.');
+                }
+            } catch (error) {
+                alert('There was an issue submitting your application. Please try again or contact us directly.');
+            }
+
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    </script>
 </body>
 </html>
